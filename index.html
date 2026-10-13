@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiivaan Salil Chaturvedi — Portfolio</title>
+    <meta name="description" content="Aspiring entrepreneur and developer with a focus on AI solutions">
+    <meta property="og:title" content="Shiivaan Salil Chaturvedi">
+    <meta property="og:description" content="Aspiring entrepreneur and developer with a focus on AI solutions">
+    <meta property="og:image" content="">
+    <meta property="og:type" content="profile">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICAgICAgICAgICAgPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMwY2E1ZTkiIHJ4PSIxMiIvPgogICAgICAgICAgICA8dGV4dCB4PSI1MCIgeT0iNzAiIGZvbnQtc2l6ZT0iNjAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InN5c3RlbS11aSI+UzwvdGV4dD4KICAgICAgICA8L3N2Zz4=">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paper: #f7f5f2;
+            --card: #fffdfa;
+            --ink: #16130f;
+            --muted: #6f6759;
+            --hair: rgba(22, 19, 15, 0.10);
+            --accent: #0ca5e9;
+            --accent-soft: rgba(12, 165, 233, 0.10);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        ::selection { background: var(--accent); color: #fff; }
+
+        header {
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(247, 245, 242, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--hair);
+        }
+        nav {
+            max-width: 1040px; margin: 0 auto; padding: 0.8rem 1.5rem;
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+        }
+        /* Shared item media (image / PDF / link) — every section type supports all three */
+        .item-media-img {
+            /* Frame follows the image, never crops it: certificates are often A4
+               portrait, so height is driven by the picture's own aspect ratio. */
+            display: block; width: auto; height: auto;
+            max-width: min(320px, 100%); max-height: 440px;
+            object-fit: contain; border-radius: 10px; margin: 0.7rem 0 0.2rem;
+        }
+        .item-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.7rem; }
+        .item-actions a {
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            font-size: 0.8rem; font-weight: 600; text-decoration: none;
+            padding: 0.36rem 0.8rem; border-radius: 999px;
+            border: 1px solid #0ca5e9; color: #0ca5e9;
+            background: transparent; transition: background 0.2s, color 0.2s;
+        }
+        .item-actions a:hover { background: #0ca5e9; color: #fff; }
+        nav .logo {
+            font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.3rem;
+            color: var(--ink); text-decoration: none; letter-spacing: -0.01em;
+        }
+        nav .logo em { color: var(--accent); font-style: normal; }
+        nav .links { display: flex; gap: 0.35rem; row-gap: 0.3rem; list-style: none; align-items: center; flex-wrap: wrap; justify-content: flex-end; min-width: 0; }
+        nav .links a {
+            text-decoration: none; color: var(--ink); font-size: 0.85rem; font-weight: 600;
+            padding: 0.4rem 0.8rem; border-radius: 999px; white-space: nowrap;
+            transition: background 0.25s, color 0.25s;
+        }
+        nav .links a:hover { background: var(--ink); color: var(--paper); }
+        .resume-btn {
+            background: var(--ink); color: var(--paper); text-decoration: none;
+            padding: 0.55rem 1.1rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600;
+            transition: background 0.25s, transform 0.2s; border: none; cursor: pointer;
+        }
+        .resume-btn:hover { background: var(--accent); transform: translateY(-1px); }
+
+        main { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
+
+        .hero {
+            display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem;
+            align-items: center; padding: 5rem 0 4rem;
+        }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            color: var(--accent); font-size: 0.78rem; font-weight: 700;
+            letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1.1rem;
+        }
+        .hero-eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--accent); }
+        .hero h1 {
+            font-family: 'Fraunces', serif; font-weight: 700;
+            font-size: clamp(2.7rem, 6.5vw, 4.4rem); line-height: 1.04;
+            letter-spacing: -0.02em; margin-bottom: 1rem;
+        }
+        .hero .tagline { font-size: 1.15rem; color: var(--muted); max-width: 34rem; margin-bottom: 1.6rem; }
+        .hero-photo-wrap { position: relative; justify-self: end; }
+        .hero-photo {
+            width: min(300px, 100%); aspect-ratio: 4/5; object-fit: cover;
+            border-radius: 22px; display: block;
+            box-shadow: 0 24px 60px rgba(22, 19, 15, 0.18);
+        }
+        .hero-photo-wrap::after {
+            content: ""; position: absolute; inset: 14px -14px -14px 14px;
+            border: 2px solid var(--accent); border-radius: 22px; z-index: -1; opacity: 0.55;
+        }
+        .social-icons { display: flex; gap: 0.7rem; margin-top: 0.4rem; }
+        .social-icons a {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 42px; height: 42px; border-radius: 50%;
+            background: var(--card); border: 1px solid var(--hair); color: var(--ink);
+            text-decoration: none; transition: transform 0.25s, background 0.25s, color 0.25s;
+        }
+        .social-icons a:hover { background: var(--accent); color: #fff; transform: translateY(-3px); }
+
+        .bio {
+            font-size: 1.06rem; color: #3d372e; max-width: 46rem; line-height: 1.85;
+            border-left: 3px solid var(--accent); padding: 0.4rem 0 0.4rem 1.4rem;
+            margin: 0 0 4rem;
+        }
+
+        section { margin-bottom: 4.5rem; }
+        .sec-head {
+            display: flex; align-items: baseline; gap: 1rem;
+            border-bottom: 1px solid var(--hair); padding-bottom: 0.9rem; margin-bottom: 1.8rem;
+        }
+        .sec-num { font-family: 'Fraunces', serif; color: var(--accent); font-weight: 600; font-size: 1rem; }
+        .sec-head h2 {
+            font-family: 'Fraunces', serif; font-weight: 600;
+            font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.01em;
+        }
+
+        .xp-item {
+            position: relative; padding: 0 0 1.8rem 1.7rem;
+            border-left: 1px solid var(--hair);
+        }
+        .xp-item:last-child { padding-bottom: 0.4rem; }
+        .xp-item::before {
+            content: ""; position: absolute; left: -5px; top: 0.45rem;
+            width: 9px; height: 9px; border-radius: 50%; background: var(--accent);
+        }
+        .xp-top { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: baseline; }
+        .xp-top h3 { font-size: 1.06rem; font-weight: 700; }
+        .xp-duration {
+            font-size: 0.75rem; font-weight: 600; color: var(--accent);
+            background: var(--accent-soft); padding: 0.2rem 0.7rem; border-radius: 999px; white-space: nowrap;
+        }
+        .xp-company { color: var(--muted); font-weight: 600; font-size: 0.92rem; margin: 0.15rem 0 0.4rem; }
+        .xp-item p { color: #4a443a; font-size: 0.95rem; }
+        .xp-item ul { margin: 0.5rem 0 0 1.1rem; color: #4a443a; font-size: 0.92rem; }
+        .xp-item img { width: auto; height: auto; max-width: 220px; max-height: 300px; object-fit: contain; border-radius: 12px; margin-top: 0.7rem; border: 1px solid var(--hair); }
+
+        .paper {
+            background: var(--card); border: 1px solid var(--hair); border-radius: 16px;
+            padding: 1.5rem 1.6rem; margin-bottom: 1.1rem;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .paper:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(22, 19, 15, 0.10); }
+        .paper-meta { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.6rem; }
+        .paper-journal {
+            background: var(--accent-soft); color: var(--accent);
+            font-size: 0.75rem; font-weight: 700; padding: 0.22rem 0.75rem; border-radius: 999px;
+        }
+        .paper-year { color: var(--muted); font-size: 0.8rem; font-weight: 600; }
+        .paper h3 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.15rem; line-height: 1.35; margin-bottom: 0.45rem; }
+        .paper p { color: #4a443a; font-size: 0.93rem; margin-bottom: 0.9rem; }
+        .paper-link {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            background: var(--ink); color: var(--paper); text-decoration: none;
+            font-size: 0.82rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 999px;
+            transition: background 0.25s;
+        }
+        .paper-link:hover { background: var(--accent); }
+
+        .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.3rem; }
+        .proj-card {
+            background: var(--card); border: 1px solid var(--hair); border-radius: 16px; overflow: hidden;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .proj-card:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(22, 19, 15, 0.12); }
+        .proj-card img { width: 100%; height: auto; max-height: 460px; object-fit: contain; display: block; background: var(--paper, #fff); }
+        .proj-card .proj-ph { width: 100%; aspect-ratio: 16/10; display: block; }
+        .proj-card .proj-ph { background: linear-gradient(135deg, var(--accent-soft), rgba(12, 165, 233, 0.28)); }
+        .proj-body { padding: 1.15rem 1.25rem 1.35rem; }
+        .proj-body h3 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.08rem; margin-bottom: 0.4rem; }
+        .proj-body p { color: #4a443a; font-size: 0.92rem; margin-bottom: 0.7rem; }
+        .proj-body a { color: var(--accent); font-weight: 700; font-size: 0.86rem; text-decoration: none; }
+        .proj-body a:hover { text-decoration: underline; }
+
+        .tile-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.1rem; }
+        .tile {
+            background: var(--card); border: 1px solid var(--hair); border-radius: 14px; padding: 1.2rem 1.3rem;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .tile:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(22, 19, 15, 0.10); }
+        .tile h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.35rem; }
+        .tile .tile-year { color: var(--accent); font-size: 0.76rem; font-weight: 700; }
+        .tile p { color: #4a443a; font-size: 0.9rem; }
+        .tile img { width: 100%; height: auto; max-height: 420px; object-fit: contain; border-radius: 10px; margin-top: 0.7rem; border: 1px solid var(--hair); }
+
+        .gallery { columns: 3 240px; column-gap: 1rem; }
+        .gallery figure { break-inside: avoid; margin-bottom: 1rem; }
+        .gallery img { width: 100%; border-radius: 14px; display: block; border: 1px solid var(--hair); }
+        .gallery figcaption { font-size: 0.8rem; color: var(--muted); padding: 0.35rem 0.2rem; }
+
+        footer {
+            border-top: 1px solid var(--hair); margin-top: 4rem; padding: 2.2rem 1.5rem 2.6rem; text-align: center;
+        }
+        footer .logo { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.2rem; }
+        footer .logo em { color: var(--accent); font-style: normal; }
+        footer p { color: var(--muted); font-size: 0.86rem; margin-top: 0.5rem; }
+        footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0.7rem 1rem; }
+            nav .links {
+                order: 3; width: 100%; overflow-x: auto; flex-wrap: nowrap;
+                padding-bottom: 0.45rem; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+            }
+            nav .links::-webkit-scrollbar { display: none; }
+            nav .links a { background: var(--accent-soft); color: var(--accent); }
+            main { padding: 0 1.15rem; }
+            .hero {
+                grid-template-columns: 1fr; gap: 1.6rem; padding: 2.4rem 0 2rem; text-align: left;
+            }
+            .hero-photo-wrap { justify-self: start; order: -1; }
+            .hero-photo { width: 132px; aspect-ratio: 1; border-radius: 18px; }
+            .hero-photo-wrap::after { inset: 9px -9px -9px 9px; border-radius: 18px; }
+            .bio { margin-bottom: 2.4rem; font-size: 1rem; }
+            section { margin-bottom: 2.6rem; }
+            .gallery { columns: 2 150px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Shiivaan<em>.</em></a>
+            <ul class="links"><li><a href="#education">Education</a></li><li><a href="#research-publications">Research &amp; Publications</a></li><li><a href="#projects">Projects</a></li><li><a href="#internships-programs">Internships &amp; Programs</a></li><li><a href="#leadership-extracurricular-activities">Leadership &amp; Extracurricular Activities</a></li><li><a href="#community-volunteering">Community &amp; Volunteering</a></li><li><a href="#skills-languages">Skills &amp; Languages</a></li><li><a href="#honours-awards">Honours &amp; Awards</a></li></ul>
+            
+        </nav>
+    </header>
+    <main>
+        <div class="hero">
+            <div>
+                <span class="hero-eyebrow">Portfolio</span>
+                <h1>Shiivaan Salil Chaturvedi</h1>
+                <p class="tagline">Aspiring entrepreneur and developer with a focus on AI solutions</p>
+                
+            </div>
+            
+        </div>
+        <p class="bio reveal">Hi, I&#39;m Shiivaan. I&#39;ve lived in Mumbai, India, where I attend the American School of Bombay as part of the IBDP Program. My interests lie in entrepreneurship, applied AI, and business analytics. As the founder and developer of ORIVOX, I&#39;ve created an AI voice receptionist to help small businesses. I&#39;ve also actively participated in research, internships, and leadership roles at school.</p>
+        <section id="education"><div class="sec-head"><span class="sec-num">01</span><h2>Education</h2></div><div class="xp-item">
+                        <div class="xp-top">
+                            <h3>Grade 11, IB Diploma</h3>
+                            <span class="xp-duration">2025 - 2027</span>
+                        </div>
+                        <div class="xp-company">American School of Bombay</div>
+                        <p>Currently pursuing IB with Higher Level subjects in English A, Economics, Music and Standard Level in Mathematics, Physics, and French.</p>
+                        <ul><li>Predicted IB Score: 38/42</li><li>IB Score: 36/42</li></ul>
+                        
+                        <div class="item-loc" style="font-size:.85em;opacity:.8;margin:2px 0 6px;">📍 Mumbai, India</div>
+                    </div><div class="xp-item">
+                        <div class="xp-top">
+                            <h3>IGCSE</h3>
+                            <span class="xp-duration">Completed 2025</span>
+                        </div>
+                        <div class="xp-company">Dhirubai Ambani International School</div>
+                        <p>Achieved A* in two subjects, A in others except Spanish (B), covering disciplines from Business to Sciences.</p>
+                        
+                        
+                        <div class="item-loc" style="font-size:.85em;opacity:.8;margin:2px 0 6px;">📍 Mumbai, India</div>
+                    </div></section><section id="research-publications"><div class="sec-head"><span class="sec-num">02</span><h2>Research &amp; Publications</h2></div><div class="paper">
+                        <div class="paper-meta">
+                            <span class="paper-journal">Published Articles</span>
+                            <span class="paper-year">2026</span>
+                        </div>
+                        <h3>Workforce Transformation in the Age of AI: A Review of AI Receptionist Systems and Organizational Impacts in SMEs</h3>
+                        
+                        
+                    </div><div class="paper">
+                        <div class="paper-meta">
+                            <span class="paper-journal">International Journal for Multidisciplinary Research</span>
+                            <span class="paper-year">2026</span>
+                        </div>
+                        <h3>Explainable AI for Business Decision-Making: Enhancing Transparency, Trust, and Strategic Performance</h3>
+                        
+                        
+                    </div><div class="paper">
+                        <div class="paper-meta">
+                            <span class="paper-journal">International Journal for Research Trends and Innovation</span>
+                            <span class="paper-year">2026</span>
+                        </div>
+                        <h3>Multi-Agent AI Systems for Business Strategy Simulation: A Framework for Intelligent Organizational Decision-Making</h3>
+                        
+                        
+                    </div><div class="paper">
+                        <div class="paper-meta">
+                            <span class="paper-journal">International Journal of Scientific Development and Research</span>
+                            <span class="paper-year">2026</span>
+                        </div>
+                        <h3>AI-Based Dynamic Pricing Models for E-Commerce: Enhancing Revenue Optimization and Competitive Advantage</h3>
+                        
+                        
+                    </div><div class="paper">
+                        <div class="paper-meta">
+                            <span class="paper-journal">International Journal of Research and Analytical Reviews</span>
+                            <span class="paper-year">2026</span>
+                        </div>
+                        <h3>Employee Productivity Prediction Using AI in Remote Work Environments</h3>
+                        
+                        
+                    </div></section><section id="projects"><div class="sec-head"><span class="sec-num">03</span><h2>Projects</h2></div><div class="proj-grid"><div class="proj-card">
+                        <div class="proj-ph"></div>
+                        <div class="proj-body">
+                            <h3>ORIVOX (AI Voice Receptionist)</h3>
+                            <p>Developed an AI voice receptionist for appointment-based small businesses, aiding in scheduling and follow-ups.</p>
+                            
+                            
+                        </div>
+                    </div></div></section><section id="internships-programs"><div class="sec-head"><span class="sec-num">04</span><h2>Internships &amp; Programs</h2></div><div class="xp-item">
+                        <div class="xp-top">
+                            <h3>Intern</h3>
+                            <span class="xp-duration">[Dates]</span>
+                        </div>
+                        <div class="xp-company">Optimizer 360</div>
+                        <p>Generated sales for AI-driven SEO services and supported development of SEO system.</p>
+                        
+                        
+                        <div class="item-loc" style="font-size:.85em;opacity:.8;margin:2px 0 6px;">📍 Mumbai, India</div>
+                    </div><div class="xp-item">
+                        <div class="xp-top">
+                            <h3>Intern</h3>
+                            <span class="xp-duration">3 months</span>
+                        </div>
+                        <div class="xp-company">Malsons</div>
+                        <p>Worked within a music and entertainment incubator, focusing on business development.</p>
+                        
+                        
+                        
+                    </div></section><section id="leadership-extracurricular-activities"><div class="sec-head"><span class="sec-num">05</span><h2>Leadership &amp; Extracurricular Activities</h2></div><div class="tile-grid"><div class="tile">
+                        <span class="tile-year">2026</span>
+                        <h3>Deputy Secretary-General, ASB Model United Nations</h3>
+                        <p>Helped plan and coordinate responsibilities for the school&#39;s MUN conference.</p>
+                        
+                        
+                    </div><div class="tile">
+                        <span class="tile-year">2026</span>
+                        <h3>Finance and Marketing, Student Business Showcase</h3>
+                        <p>Managed finances and marketing for a large-scale event, donating proceeds to charity.</p>
+                        
+                        
+                    </div><div class="tile">
+                        <span class="tile-year">2026</span>
+                        <h3>FIRST Tech Challenge</h3>
+                        <p>Competed in the international robotics program, achieving 2nd place at the national level.</p>
+                        
+                        
+                    </div><div class="tile">
+                        <span class="tile-year">2026</span>
+                        <h3>Football Representation at SAISA</h3>
+                        <p>Represented ASB in football at an international level competition.</p>
+                        
+                        
+                    </div><div class="tile">
+                        <span class="tile-year">2026</span>
+                        <h3>Guitarist and Vocalist</h3>
+                        <p>Performed in school music shows including choir concerts.</p>
+                        
+                        
+                    </div></div></section><section id="community-volunteering"><div class="sec-head"><span class="sec-num">06</span><h2>Community &amp; Volunteering</h2></div><div class="tile-grid"><div class="tile">
+                        <span class="tile-year">2026</span>
+                        <h3>Guitar Lessons for Underprivileged Children</h3>
+                        <p>Teach guitar to children who lack access to music lessons.</p>
+                        
+                        
+                    </div></div></section><section id="skills-languages"><div class="sec-head"><span class="sec-num">07</span><h2>Skills &amp; Languages</h2></div><div class="tile-grid"><div class="tile">
+                        <span class="tile-year">2026</span>
+                        <h3>Technology Skills</h3>
+                        <p>AI voice agent and chatbot development; website building</p>
+                        
+                        
+                    </div><div class="tile">
+                        <span class="tile-year">2026</span>
+                        <h3>Business Skills</h3>
+                        <p>Sales; pricing strategy; event finance and marketing</p>
+                        
+                        
+                    </div><div class="tile">
+                        <span class="tile-year">2026</span>
+                        <h3>Research Skills</h3>
+                        <p>Literature review; academic writing</p>
+                        
+                        
+                    </div><div class="tile">
+                        <span class="tile-year">2026</span>
+                        <h3>Music Skills</h3>
+                        <p>Guitar; vocals; composition for film</p>
+                        
+                        
+                    </div><div class="tile">
+                        <span class="tile-year">2026</span>
+                        <h3>Language Skills</h3>
+                        <p>English (IELTS 8.5); French (IB French B); Spanish (IGCSE)</p>
+                        
+                        
+                    </div></div></section><section id="honours-awards"><div class="sec-head"><span class="sec-num">08</span><h2>Honours &amp; Awards</h2></div><div class="tile-grid"><div class="tile">
+                        <span class="tile-year">2026</span>
+                        <h3>Interschool Economic/Business Competition</h3>
+                        <p>Hosted a competition with entries from India, UK, and US, featuring a guest judge from Morgan Stanley.</p>
+                        
+                        
+                    </div></div></section>
+    </main>
+    <footer>
+        <div class="logo">Shiivaan<em>.</em></div>
+        <p>© 2026 Shiivaan Salil Chaturvedi · <a href="mailto:shiivaanchaturvedi1@gmail.com">shiivaanchaturvedi1@gmail.com</a></p>
+    </footer>
+    <script>
+        (function() {
+            var els = document.querySelectorAll('section, .bio');
+            els.forEach(function(el) { el.classList.add('reveal'); });
+            if (!('IntersectionObserver' in window)) {
+                els.forEach(function(el) { el.classList.add('in'); });
+                return;
+            }
+            var io = new IntersectionObserver(function(entries) {
+                entries.forEach(function(e) {
+                    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+                });
+            }, { threshold: 0.08 });
+            els.forEach(function(el) { io.observe(el); });
+        })();
+    </script>
+</body>
+</html>
